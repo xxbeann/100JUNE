@@ -31,3 +31,32 @@ def solution(participant, completion):
 <br>하지만 이 풀이로는 동명이인 중 누가 완주하지 못했는지 찾아내는게 불가능합니다.<strong>애초에 케이스를 저렇게 나누면 안댔다,,,</strong>
 <br>그럼 이 문제를 해결하기 위해서는 어떻게 해야 할까요?
 <br>그러게 말입니다. 열심히 생각중이에요 딕셔너리를 이용하래요 딕셔너리를 한번 공부해보겠습니다.
+```python
+pd = {}
+pc = {}
+answer = []
+
+for i in range(len(p)):
+       pd[p[i]] = p.count(p[i])
+for k in range(len(c)):
+       pc[c[k]] = c.count(c[k])
+
+print(pd)
+print(pc)
+a = list(pd.keys())
+b = list(pc.keys())
+print(a)
+
+if len(a) == len(b):
+       for j in range(len(a)):
+              if pd[a[j]] != pc[a[j]]:
+                     answer.append(a[j])
+
+else:
+       ans = set(a) - set(b)
+       answer = list(ans)
+
+print(answer)
+```
+다음과 같이 코드를 짜봤는데 역시 풀리지 않습니다. 시간복잡도에서 오류가나더군요,,,
+<br>사람이름과 사람이름이 나오는 횟수를 딕셔너리로 이용해서 사랑 이름이 나오는 횟수가 변하면 완주하지 못한사람으로 간주하기로했는데,,,안나오네요  😞
