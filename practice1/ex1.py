@@ -1,29 +1,15 @@
 p = ["leo", "kiki", "eden"]
 c = ["eden", "kiki"]
 
-pd = {}
-pc = {}
-answer = []
+temp = 0
+dic = {}
 
-for i in range(len(p)):
-       pd[p[i]] = p.count(p[i])
-for k in range(len(c)):
-       pc[c[k]] = c.count(c[k])
-
-print(pd)
-print(pc)
-a = list(pd.keys())
-b = list(pc.keys())
-print(a)
-
-if len(a) == len(b):
-       for j in range(len(a)):
-              if pd[a[j]] != pc[a[j]]:
-                     answer.append(a[j])
-
-else:
-       ans = set(a) - set(b)
-       answer = list(ans)
-
-print(answer)
-# 아,,,, 모르겠다,,,ㅜㅜ
+for part in p:
+       dic[hash(part)] = part
+       temp += int(hash(part))
+for com in c:
+       temp -= hash(com)
+print(dic)
+print(temp)
+print(dic[temp])
+# 키값이 해쉬함수 value값이 사람이름
